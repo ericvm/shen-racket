@@ -9,10 +9,12 @@
   (symbol (:+ (:~ whitespace #\( #\)))))
 
 (define shen-lexer
-  (lexer
-   [whitespace lexeme]
-   [number (token 'NUMBER lexeme)]
+  (lexer-srcloc
+   [whitespace (token 'WHITESPACE lexeme #:skip? #t)]
+   [number (token 'NUMBER (string->number lexeme))]
    [string  (token 'STRING lexeme)]
-   [symbol (token 'SYMBOL lexeme)]
+   [symbol (token 'SYMBOL (string->symbol lexeme))]
    [#\( (token 'LEFT-PAREN lexeme)]
    [#\) (token 'RIGHT-PAREN lexeme)]))
+
+(provide shen-lexer)
