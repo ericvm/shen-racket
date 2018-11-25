@@ -8,7 +8,7 @@
               (:? (:: #\. (:+ numeric)))))
   (symbol (:+ (:~ whitespace #\( #\)))))
 
-(define shen-lexer
+(define klambda-lexer
   (lexer-srcloc
    [whitespace (token 'WHITESPACE lexeme #:skip? #t)]
    [number (token 'NUMBER (string->number lexeme))]
@@ -17,4 +17,4 @@
    [#\( (token 'LEFT-PAREN lexeme)]
    [#\) (token 'RIGHT-PAREN lexeme)]))
 
-(provide shen-lexer)
+(provide klambda-lexer)

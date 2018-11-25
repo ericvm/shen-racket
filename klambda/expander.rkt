@@ -1,9 +1,9 @@
 #lang br
 
-(define-macro (shen-module-begin PARSE-TREE)
+(define-macro (klambda-module-begin PARSE-TREE)
   #'(#%module-begin
      'PARSE-TREE))
-(provide (rename-out [shen-module-begin #%module-begin]))
+(provide (rename-out [klambda-module-begin #%module-begin]))
 
 (define-macro (klprogram FORM ...)
   #'(list FORM ...))

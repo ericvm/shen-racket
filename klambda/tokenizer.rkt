@@ -4,7 +4,7 @@
 
 (define (make-tokenizer port)
   (define (next-token)
-    (shen-lexer port))
+    (klambda-lexer port))
   next-token)
 
 (provide make-tokenizer)
