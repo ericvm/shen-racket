@@ -1,14 +1,14 @@
-#lang br
+#lang racket
 
-(define-macro (klambda-module-begin PARSE-TREE)
-  #'(#%module-begin
-     'PARSE-TREE))
+(define-syntax klambda-module-begin
+  (syntax-rules ()
+    [(klambda-module-begin body) (#%module-begin body)]))
 (provide (rename-out [klambda-module-begin #%module-begin]))
 
-(define-macro (klprogram FORM ...)
-  #'(list FORM ...))
+(define-syntax klprogram
+  (syntax-rules ()
+    [(klprogram FORM ...) (begin FORM ...)]))
 (provide klprogram)
 
-(define-macro (sexp FORM ...)
-  #'(list FORM ...))
-(provide sexp)
+(provide + #%datum #%app #%top-interaction)
+
