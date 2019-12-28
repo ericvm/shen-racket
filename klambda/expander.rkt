@@ -12,12 +12,12 @@
 
 (define-syntax sexp
   (syntax-rules ()
-    [(sexp FORM) (FORM)]))
+    [(sexp FORM) FORM]))
 (provide sexp)
 
 (define-syntax list
   (syntax-rules ()
-    [(list FORM ...) 0]))
-(provide list)
+    [(list FORM ...) (FORM ...)]))
+(provide list +)
 (provide #%datum #%app)
 
