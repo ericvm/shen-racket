@@ -1,4 +1,4 @@
-#lang br
+#lang racket
 
 (define-syntax klambda-module-begin
   (syntax-rules ()
@@ -10,14 +10,5 @@
     [(klprogram FORM ...) (begin FORM ...)]))
 (provide klprogram)
 
-(define-syntax sexp
-  (syntax-rules ()
-    [(sexp FORM) FORM]))
-(provide sexp)
-
-(define-syntax list
-  (syntax-rules ()
-    [(list FORM ...) (FORM ...)]))
-(provide list +)
-(provide #%datum #%app)
+(provide + #%datum #%app #%top-interaction)
 
